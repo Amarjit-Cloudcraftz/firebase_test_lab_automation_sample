@@ -39,13 +39,21 @@ jobs:
       - name: Run tests
         run: flutter test
 
+  firebase:
+    name: Run UI tests with Firebase Test Lab
+    needs: apk
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+
       - name: Download app APK
         uses: actions/download-artifact@v1
         with:
           name: app-debug
 
       - name: Login to Google Cloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
         with:
           version: '270.0.0'
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
