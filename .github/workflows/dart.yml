@@ -43,10 +43,10 @@ jobs:
   firebase:
     name: Run UI tests with Firebase Test Lab
     needs: apk
-    runs-on: ubuntu-18.04
-
+    runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - name: Download app APK
         uses: actions/download-artifact@v1
