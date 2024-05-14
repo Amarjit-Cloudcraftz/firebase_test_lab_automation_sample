@@ -27,5 +27,14 @@ jobs:
       - name: Check Flutter
         run: flutter doctor
 
+      - name: Build APK (Android)
+        run: flutter build apk --debug
+
+      - name: Upload APK artifact (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug.apk
+          path: build/app/outputs/apk/debug/app-debug.apk
+
       - name: Run tests
         run: flutter test
