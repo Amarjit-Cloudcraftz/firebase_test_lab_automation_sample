@@ -24,6 +24,9 @@ jobs:
         with:
           flutter-version: '3.3.9'
 
+      - name: Check Flutter
+        run: flutter doctor
+
       - name: Install dependencies
         run: flutter pub get
 
