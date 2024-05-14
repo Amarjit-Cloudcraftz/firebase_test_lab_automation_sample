@@ -19,6 +19,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Flutter Install
+        uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+          
+      - name: Check Flutter
+        run: flutter doctor
+        
+      - name: Build APK (Android)
+        run: flutter build apk --debug
+        
+      - name: Upload APK artifact (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug.apk
+          path: build/app/outputs/apk/debug/app-debug.apk
+          
+      - name: Run tests
+        run: flutter test
+        
+      - name: Download app APK
+        uses: actions/download-artifact@v1
+        with:
+          name: app-debug.apk
+
       - name: Login to Google Cloud
         uses: google-github-actions/auth@v2
         with:
