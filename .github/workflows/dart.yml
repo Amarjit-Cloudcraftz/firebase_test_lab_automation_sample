@@ -19,9 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: echo ${{ secrets.GCLOUD_AUTH }} | base64 -d > gcloud-service-key.json
-      - run: gcloud auth activate-service-account --key-file gcloud-service-key.json
-
       - name: Login to Google Cloud
         uses: google-github-actions/auth@v2
         with:
