@@ -53,7 +53,7 @@ jobs:
           name: app-debug
 
       - name: Login to Google Cloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@test
+        uses: 'google-github-actions/setup-gcloud@v2'
         with:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
 
