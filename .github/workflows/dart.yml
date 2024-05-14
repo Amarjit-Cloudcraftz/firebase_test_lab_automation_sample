@@ -13,12 +13,11 @@ on:
 
 
 jobs:
-  test:
+  apk:
+    name: Generate APK
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-
+    
       - name: Flutter Install
         uses: subosito/flutter-action@v1
         with:
@@ -26,11 +25,6 @@ jobs:
 
       - name: Check Flutter
         run: flutter doctor
-
-  apk:
-    name: Generate APK
-    runs-on: ubuntu-18.04
-    steps:
 
       - name: Build APK (Android)
         run: flutter build apk --debug
