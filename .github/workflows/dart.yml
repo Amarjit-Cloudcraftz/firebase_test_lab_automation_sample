@@ -42,7 +42,6 @@ jobs:
       - name: Download app APK
         uses: actions/download-artifact@v1
         with:
-          name: app-debug
           path: app-debug.apk
 
       - name: Login to Google Cloud
