@@ -39,14 +39,6 @@ jobs:
       - name: Run tests
         run: flutter test
 
-  firebase:
-    name: Run UI tests with Firebase Test Lab
-    needs: apk
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
-
       - name: Download app APK
         uses: actions/download-artifact@v1
         with:
