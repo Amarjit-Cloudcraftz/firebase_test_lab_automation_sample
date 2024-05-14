@@ -43,6 +43,7 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: app-debug
+          path: build/app/outputs/apk/debug/
 
       - name: Login to Google Cloud
         uses: 'google-github-actions/setup-gcloud@v2'
