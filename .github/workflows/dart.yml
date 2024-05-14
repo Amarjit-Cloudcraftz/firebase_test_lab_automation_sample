@@ -45,7 +45,7 @@ jobs:
           name: app-debug.apk
 
       - name: Login to Google Cloud
-        uses: 'google-github-actions/setup-gcloud@v2'
+        uses: google-github-actions/setup-gcloud@v2
         with:
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
 
@@ -53,4 +53,4 @@ jobs:
         run: gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}
 
       - name: Run Instrumentation Tests in Firebase Test Lab
-        run: gcloud firebase test android run --type instrumentation --app app-debug/app-debug.apk --test app-debug-androidTest/app-debug-androidTest.apk --device model=Pixel5,version=30,locale=pl,orientation=portrait
+        run: gcloud firebase test android run --type instrumentation --app app-debug/app-debug.apk --device model=Pixel5,version=30,locale=pl,orientation=portrait
