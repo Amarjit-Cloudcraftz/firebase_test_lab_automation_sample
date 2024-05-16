@@ -63,4 +63,4 @@ jobs:
         with:
           arg-spec: 'tests.yml:android-pixel-4'
         env:
-          SERVICE_ACCOUNT: ${{ secrets.GCLOUD_AUTH_JSON }}
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
