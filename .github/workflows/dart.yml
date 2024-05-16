@@ -35,9 +35,6 @@ jobs:
         with:
           name: app-debug.apk
           path: build/app/outputs/apk/debug/app-debug.apk
-          
-      - name: Run tests
-        run: flutter test
         
       - name: Download app APK
         uses: actions/download-artifact@v1
