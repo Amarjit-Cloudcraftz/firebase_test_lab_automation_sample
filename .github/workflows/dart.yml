@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-debug-androidTest.apk
-          path: app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+          path: build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk
         
       - name: Download debug APK
         uses: actions/download-artifact@v1
