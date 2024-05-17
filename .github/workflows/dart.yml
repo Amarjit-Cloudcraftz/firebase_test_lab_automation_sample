@@ -41,7 +41,7 @@ jobs:
         run: ls
 
       - name: Change directory to android
-        run: bash cd ./android/
+        run: pushd android
 
       - name: Check project files
         run: ls
