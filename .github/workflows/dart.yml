@@ -34,6 +34,11 @@ jobs:
 
       - name: Go to android directory
         run: pushd android
+        
+      - name: Clear Gradle cache
+        run: |
+          gradle clean --refresh-dependencies
+
 
       - name: Build APK
         run: flutter build apk
