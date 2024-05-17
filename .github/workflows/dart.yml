@@ -33,7 +33,7 @@ jobs:
           java-version: 1.8
 
       - name: Go to android directory
-        run: bash cd android
+        run: bash cd android/
         
       - name: Clear Gradle cache
         run: |
