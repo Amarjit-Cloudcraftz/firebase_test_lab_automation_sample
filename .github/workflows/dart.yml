@@ -26,20 +26,40 @@ jobs:
           
       - name: Check Flutter
         run: flutter doctor
+
+      - name: Go to android directory
+        run: pushd android
+
+      - name: Build APK
+        run: flutter build apk
+
+      - name: Assemble app debug APK
+        run: bash ./gradlew assembleDebug --stacktrace
         
-      - name: Build APK (Android)
-        run: flutter build apk --debug
-        
-      - name: Upload APK artifact (optional)
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v3
         with:
           name: app-debug.apk
           path: build/app/outputs/apk/debug/app-debug.apk
+
+      - name: Assemble Android Instrumentation Tests
+        run: bash ./gradlew assembleDebugAndroidTest
+
+      - name: Upload Test APK artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug-androidTest
+          path: app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
         
-      - name: Download app APK
+      - name: Download debug APK
         uses: actions/download-artifact@v1
         with:
           name: app-debug.apk
+
+      - name: Download Android test APK
+        uses: actions/download-artifact@v1
+        with:
+          name: app-debug-androidTest
 
       - name: Login to Google Cloud
         uses: google-github-actions/auth@v2
