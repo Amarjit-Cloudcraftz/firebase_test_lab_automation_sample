@@ -76,6 +76,9 @@ jobs:
       - name: Set current project
         run: gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}
 
+      - name: Check Flutter
+        run: ls
+
      # Run the Firebase Test Lab Action
       - name: Run tests on Firebase Test Lab
         run: gcloud firebase test android run --type robo --app ./app-debug.apk --device model=Pixel2,version=28,locale=pl,orientation=portrait
