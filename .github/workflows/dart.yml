@@ -33,42 +33,19 @@ jobs:
           distribution: 'oracle'
           java-version: '17'
 
-
-      - name: Build APK
-        run: flutter build apk
-      - name: (Optional) Verify current directory (for troubleshooting)
-        run: pwd
-
-      - name: Check project files
-        run: ls
-
       - name: Change directory to android
-        run: pushd android
-
-      - name: Check project files
-        run: ls
-
-        
-      - name: Clear Gradle cache
         run: |
-          cd android
-          gradle clean --refresh-dependencies
-
-
-      - name: Build APK
-        run: flutter build apk
-
-      - name: Assemble app debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
+              pushd android
+              flutter build apk
+              bash ./gradlew assembleDebug --stacktrace
+              bash ./gradlew assembleDebugAndroidTest
+              popd  
         
       - name: Upload APK artifact
         uses: actions/upload-artifact@v3
         with:
           name: app-debug.apk
           path: build/app/outputs/apk/debug/app-debug.apk
-
-      - name: Assemble Android Instrumentation Tests
-        run: bash ./gradlew assembleDebugAndroidTest
 
       - name: Upload Test APK artifact
         uses: actions/upload-artifact@v3
