@@ -32,8 +32,12 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Go to android directory
-        run: bash cd android/
+      - name: Change directory to project root
+        run: cd firebase_test_lab_automation_sample/  # Replace with your project's name
+
+      - name: (Optional) Verify current directory (for troubleshooting)
+        run: pwd
+
         
       - name: Clear Gradle cache
         run: |
