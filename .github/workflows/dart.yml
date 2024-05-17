@@ -49,6 +49,7 @@ jobs:
         
       - name: Clear Gradle cache
         run: |
+          cd android
           gradle clean --refresh-dependencies
 
 
