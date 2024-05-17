@@ -33,7 +33,8 @@ jobs:
           java-version: 1.8
 
 
-
+      - name: Build APK
+        run: flutter build apk
       - name: (Optional) Verify current directory (for troubleshooting)
         run: pwd
 
