@@ -38,7 +38,7 @@ jobs:
               pushd android
               flutter build apk
               bash ./gradlew app:assembleAndroidTest
-              bash ./gradlew app:assembleDebug -Ptarget=integration_test/widget_test.dart
+              bash ./gradlew app:assembleDebug -Ptarget=integration_test/integration_test.dart
               popd
         
       - name: Upload APK artifact
