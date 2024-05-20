@@ -76,15 +76,6 @@ jobs:
       - name: Set current project
         run: gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}
 
-      - name: Check All Files in Project Directory
-        run: ls
-      - name: Check Permission of the file/directory
-        run: ls -l app-debug.apk
-      - name: Check All Files in Directory
-        run: cd ./app-debug.apk
-      - name: Check Permission of the file/directory
-        run: ls -l app-debug.apk
-
      # Run the Firebase Test Lab Action
       - name: Run tests on Firebase Test Lab
-        run: gcloud firebase test android run --type robo --app=./app-debug.apk/app-debug.apk --device model=Pixel3,version=30,orientation=portrait
+        run: gcloud firebase test android run --instrumentation robo --app=./app-debug.apk/app-debug.apk  --test ./app-debug-androidTest.apk/app-debug-androidTest.apk  --device model=Pixel3,version=30,orientation=portrait
