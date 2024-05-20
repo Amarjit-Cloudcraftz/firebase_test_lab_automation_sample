@@ -76,9 +76,13 @@ jobs:
       - name: Set current project
         run: gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}
 
-      - name: Check Flutter
+      - name: Check All Files in Project Directory
         run: ls
-      - name: Check permission
+      - name: Check Permission of the file/directory
+        run: ls -l app-debug.apk
+      - name: Check All Files in Directory
+        run: cd ./app-debug.apk
+      - name: Check Permission of the file/directory
         run: ls -l app-debug.apk
 
      # Run the Firebase Test Lab Action
